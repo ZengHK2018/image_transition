@@ -1,0 +1,1 @@
+1024,960,6,background.jpg
