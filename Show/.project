@@ -20,11 +20,4 @@
 		<nature>com.adobe.flexbuilder.project.apollonature</nature>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>[source path] lib</name>
-			<type>2</type>
-			<location>C:/Users/Administrator/Desktop/foozuu_works/lib</location>
-		</link>
-	</linkedResources>
 </projectDescription>
