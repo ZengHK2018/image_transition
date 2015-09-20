@@ -771,7 +771,7 @@ package ghostcat.display
 				return;
 			
 			_refreshInterval = v;
-			if (v == 0)
+			if (_refreshInterval == 0)
 			{
 				if (_refreshTimer)
 				{
@@ -784,12 +784,12 @@ package ghostcat.display
 			{
 				if (!_refreshTimer)
 				{
-					_refreshTimer = new Timer(v,int.MAX_VALUE);
+					_refreshTimer = new Timer(_refreshInterval,int.MAX_VALUE);
 					_refreshTimer.addEventListener(TimerEvent.TIMER,refreshHandler);
 					_refreshTimer.start();
 				}
 				else
-					_refreshTimer.delay = v;
+					_refreshTimer.delay = _refreshInterval;
 			}
 		}
 		

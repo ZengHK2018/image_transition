@@ -50,9 +50,13 @@ package
 						if(extendsions!=null && extendsions.length>0)
 						{
 							if(extendsions.indexOf( child.extension) >=0)
+							{
 								saveList.push(child);
+								_urls.push(child.url);
+							}
 						}else{
 							saveList.push(child);
+							_urls.push(child.url);
 						}
 					}
 				}
