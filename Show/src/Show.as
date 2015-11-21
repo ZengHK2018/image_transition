@@ -38,7 +38,7 @@ package
 		private function onAdded(e:Event=null):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
-			_config = new AppConfig(NativeApplication.nativeApplication, File.applicationDirectory.resolvePath("assets/config/config.json").nativePath);
+			_config = new AppConfig(NativeApplication.nativeApplication, File.applicationDirectory.resolvePath("config.txt").nativePath);
 			_front = new FilesInDir();
 			_front.init(File.applicationDirectory.resolvePath(_config.getData("frontground").dir),["jpg"]);
 			_background = new FilesInDir();
@@ -57,17 +57,26 @@ package
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 			
-			
-			
-			var background:Pictures = new Pictures(_background.urls, _config.getData("background").interval || 20, 1);
+			var background:Pictures = new Pictures(random(_background.urls), _config.getData("background").interval || 20, 1);
 			addChild(background);
 			background.play();
 			
-			var front:Pictures = new Pictures(_front.urls, _config.getData("frontground").interval || 20);
+			var front:Pictures = new Pictures(random(_front.urls), _config.getData("frontground").interval || 20);
 			addChild(front);
 			front.play();
 		
-			var sound:PlaySoundList = new PlaySoundList(_bgm.urls);
+			var sound:PlaySoundList = new PlaySoundList(random(_bgm.urls));
+		}
+		
+		protected function random(v:Vector.<String>):Vector.<String>
+		{
+			v = v.sort(rand);
+			return v;
+		}
+		
+		private function rand(a:*, b:*):int
+		{
+			return Math.random()>0.5 ? 1 : -1;
 		}
 		
 	}

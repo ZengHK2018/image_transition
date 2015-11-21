@@ -87,6 +87,11 @@ package
 		{
 			if(_gImage==null || _gImage.width==0 || _gImage.height==0)
 				return;
+			trans();
+		}
+		
+		private function trans():void
+		{
 			var v:int =  11 * Math.random();
 			trace(v);
 			switch (v)
